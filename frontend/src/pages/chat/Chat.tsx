@@ -79,7 +79,7 @@ const Chat = () => {
             && appStateContext?.state.isCosmosDBAvailable?.status !== CosmosDBStatus.NotConfigured
             && appStateContext?.state.chatHistoryLoadingState === ChatHistoryLoadingState.Fail 
             && hideErrorDialog) {
-            let subtitle = `${appStateContext.state.isCosmosDBAvailable.status}. Please contact the site administrator.`
+            let subtitle = `${appStateContext.state.isCosmosDBAvailable.status}. Please contact your site administrator.`
             setErrorMsg({
                 title: "Chat history is not enabled",
                 subtitle: subtitle
