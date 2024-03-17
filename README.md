@@ -1,3 +1,18 @@
+# [ALSIESTA] Notes
+- When `cd frontend` and running npm build, Images initially residing in `frontend/src/assets` are locally build and end up in `static root dir`. Which means, for local dev, you have to link relatively to these built images with `./<imageName>` **NOT without the dot** like so `/<imageName>`!!!
+  
+**IMPORTANT**
+- When deploying via Github Actions using `.github/workflows/docker-image.yml`, the images have to reside in `frontend/public` as the public folder is not processed by vite and are simply copied as-is to the root of the `outDir` as defined in the vite.config.ts in frontend root.
+
+!!! If If you're using Vite and your images are located in a public directory within your project, Vite treats the public directory specially: files in public are not processed by Vite and are simply copied as-is to the root of the outDir (which is ../static in your case) during the build. This means that they should be accessible at the root level of your static directory after the build, not nested within an assets directory.
+
+- **In Azure**, you have to reference the images in you configuration with a relative path like so: `./static/<imageName>`
+
+- In the app.py file, the 'load_dotenv()' method must be shifted up in the code before the environment param are actually called. Otherwise, the .env params are not read locally!!!
+
+- when testing locally, you also have to call the `requirements-dev.txt` in the `start.cmd`, because those requirements are loading quite more dependendcies.
+____
+
 # [Preview] Sample Chat App with AOAI
 
 This repo contains sample code for a simple chat webapp that integrates with Azure OpenAI. Note: some portions of the app use preview APIs.
