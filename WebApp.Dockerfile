@@ -10,9 +10,10 @@ COPY --chown=node:node ./static/ ./static
 WORKDIR /home/node/app/frontend
 RUN npm run build
 RUN ls -al /home/node/app/static
-RUN echo "################# LISTING ASSETS DIRECTORY #################" && \
-    ls -al /usr/src/app/static/assets && \
+RUN echo "################# LISTING STATIC DIRECTORY #################" && \
+    ls -al /usr/src/app/static && \
     echo "################# END OF LISTING #################"
+
   
 FROM python:3.11-alpine 
 RUN apk add --no-cache --virtual .build-deps \  
