@@ -30,7 +30,11 @@ COPY --from=frontend /home/node/app/static /usr/src/app/static/
 
 RUN echo "################# LISTING ASSETS DIRECTORY #################" && \
     ls -al /usr/src/app/static/assets && \
-    echo "################# END OF LISTING #################"
+    echo "################# END OF LISTING #################" \
+    echo "################# END OF LISTING #################" \
+    echo "################# END OF LISTING #################" \
+    echo "################# END OF LISTING #################" \
+    echo "################# END OF LISTING #################" \
 
 WORKDIR /usr/src/app  
 EXPOSE 80  
