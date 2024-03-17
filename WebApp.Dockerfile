@@ -24,7 +24,9 @@ RUN pip install --no-cache-dir -r /usr/src/app/requirements.txt \
     && rm -rf /root/.cache  
   
 COPY . /usr/src/app/  
-COPY --from=frontend /home/node/app/static  /usr/src/app/static/
+# COPY --from=frontend /home/node/app/static  /usr/src/app/static/
+COPY --from=frontend /home/node/app/frontend/build /usr/src/app/static/
+
 WORKDIR /usr/src/app  
 EXPOSE 80  
 
