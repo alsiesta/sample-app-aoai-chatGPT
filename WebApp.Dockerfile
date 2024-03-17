@@ -9,6 +9,7 @@ COPY --chown=node:node ./frontend/ ./frontend
 COPY --chown=node:node ./static/ ./static  
 WORKDIR /home/node/app/frontend
 RUN npm run build
+RUN ls -al /home/node/app/static
   
 FROM python:3.11-alpine 
 RUN apk add --no-cache --virtual .build-deps \  
